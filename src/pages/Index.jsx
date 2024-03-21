@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, VStack, HStack, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Table, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack, HStack, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Table, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure, Image } from "@chakra-ui/react";
 import { FaUser } from "react-icons/fa";
+import logo from "../assets/logo.png";
 
 const projects = [
   {
@@ -38,9 +39,12 @@ const Index = () => {
 
   return (
     <Box p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)">
-      <Heading as="h1" size="xl" mb={8}>
-        Research Council of Norway
-      </Heading>
+      <HStack mb={8}>
+        <Image src={logo} alt="Research Council of Norway Logo" h={12} />
+        <Heading as="h1" size="xl">
+          Research Council of Norway
+        </Heading>
+      </HStack>
 
       <Accordion allowMultiple borderRadius="lg" bg="white" boxShadow="lg">
         {projects.map((project) => (
