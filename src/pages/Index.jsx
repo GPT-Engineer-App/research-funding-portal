@@ -37,18 +37,20 @@ const Index = () => {
   };
 
   return (
-    <Box p={8}>
+    <Box p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)">
       <Heading as="h1" size="xl" mb={8}>
         Research Council of Norway
       </Heading>
 
-      <Accordion allowMultiple>
+      <Accordion allowMultiple borderRadius="lg" bg="white" boxShadow="lg">
         {projects.map((project) => (
           <AccordionItem key={project.id}>
             <AccordionButton>
               <Box flex="1" textAlign="left">
-                <Text fontWeight="bold">{project.title}</Text>
-                <Text>{project.status}</Text>
+                <Text fontWeight="bold" fontSize="xl">
+                  {project.title}
+                </Text>
+                <Text fontSize="lg">{project.status}</Text>
               </Box>
               <AccordionIcon />
             </AccordionButton>
@@ -65,9 +67,9 @@ const Index = () => {
         ))}
       </Accordion>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size="xl">
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent borderRadius="lg">
           <ModalHeader>Project Members</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
