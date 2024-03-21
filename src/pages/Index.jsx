@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, VStack, HStack, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Table, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure, Editable, EditableInput, EditablePreview } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack, HStack, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Table, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure, Editable, EditableInput, EditablePreview, Select } from "@chakra-ui/react";
 import { FaUser } from "react-icons/fa";
 
 const projects = [
@@ -156,7 +156,13 @@ const Index = () => {
                     <Tr key={member.id}>
                       <Td>{member.name}</Td>
                       <Td>{member.role}</Td>
-                      <Td>{member.access}</Td>
+                      <Td>
+                        <Select defaultValue={member.access}>
+                          <option value="None">None</option>
+                          <option value="Medium">Medium</option>
+                          <option value="Full">Full</option>
+                        </Select>
+                      </Td>
                     </Tr>
                   ))}
                 </Tbody>
