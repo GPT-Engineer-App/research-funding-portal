@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Box, Heading, Text, VStack, HStack, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Table, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure } from "@chakra-ui/react";
 import { FaUser } from "react-icons/fa";
-import Sidebar from "../components/Sidebar";
 
 const projects = [
   {
@@ -38,9 +37,7 @@ const Index = () => {
   };
 
   return (
-    <HStack spacing={0} align="start">
-      <Sidebar />
-      <Box p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)" flexGrow={1}>
+    <Box p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)">
       <Heading as="h1" size="xl" mb={8}>
         Research Council of Norway
       </Heading>
@@ -101,6 +98,6 @@ const Index = () => {
       </Modal>
     </Box>
   );
-}
+};
 
 export default Index;
