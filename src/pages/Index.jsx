@@ -175,7 +175,9 @@ const Index = () => {
           </Modal>
         </Box>
         <Box width="4cm" bg="white" p={4} ml={8} boxShadow="lg" borderRadius="lg">
-          <img src="https://www.forskningsradet.no/en/resources/logos/forskningsradet-logo-english.png" alt="Research Council of Norway Logo" />
+          <Text fontFamily="cursive" fontSize="xl" fontWeight="bold">
+            Research Council of Norway
+          </Text>
         </Box>
       </Flex>
     </Flex>
