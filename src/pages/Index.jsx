@@ -101,7 +101,7 @@ const Index = () => {
   return (
     <Flex p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)">
       <Flex p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)">
-        <Box flex="1">
+        <Box flex="1" height="80vh" bg="blue.100" p={8} borderRadius="lg">
           <Heading as="h1" size="xl" mb={4}>
             Research Council of Norway
           </Heading>
@@ -174,8 +174,8 @@ const Index = () => {
             </ModalContent>
           </Modal>
         </Box>
-        <Box width="4cm" bg="white" p={4} ml={8} boxShadow="lg" borderRadius="lg">
-          <Text fontFamily="cursive" fontSize="xl" fontWeight="bold">
+        <Box width="4cm" bg="white" p={2} ml={8} boxShadow="lg" borderRadius="lg">
+          <Text fontFamily="cursive" fontSize="lg" fontWeight="bold" writingMode="vertical-rl">
             Research Council of Norway
           </Text>
         </Box>
