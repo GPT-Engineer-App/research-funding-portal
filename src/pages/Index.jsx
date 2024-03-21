@@ -123,6 +123,10 @@ const Index = () => {
         ))}
       </Accordion>
 
+      <Text mt={8} fontSize="2xl" fontWeight="bold" color="white">
+        Total Grant Amount: {projects.reduce((total, project) => total + project.grantAmount, 0)} NOK
+      </Text>
+
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
         <ModalOverlay />
         <ModalContent borderRadius="lg">
