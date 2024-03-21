@@ -178,9 +178,6 @@ const Index = () => {
           <img src="https://www.forskningsradet.no/en/resources/logos/forskningsradet-logo-english.png" alt="Research Council of Norway Logo" />
         </Box>
       </Flex>
-      <Box width="4cm" bg="white" p={4} ml={8} boxShadow="lg" borderRadius="lg">
-        <img src="https://www.forskningsradet.no/en/resources/logos/forskningsradet-logo-english.png" alt="Research Council of Norway Logo" />
-      </Box>
     </Flex>
   );
 };
