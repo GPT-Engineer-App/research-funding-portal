@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, VStack, HStack, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Table, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure, Editable, EditableInput, EditablePreview, Select } from "@chakra-ui/react";
+import { Flex, Box, Heading, Text, VStack, HStack, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Table, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure, Editable, EditableInput, EditablePreview, Select } from "@chakra-ui/react";
 import { FaUser } from "react-icons/fa";
 
 const projects = [
@@ -99,79 +99,89 @@ const Index = () => {
   };
 
   return (
-    <Box p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)">
-      <Heading as="h1" size="xl" mb={4}>
-        Research Council of Norway
-      </Heading>
-      <Text fontSize="2xl" fontWeight="bold" color="white" mb={8}>
-        Total Grant Amount: {projects.reduce((total, project) => total + project.grantAmount, 0)} NOK
-      </Text>
+    <Flex p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)">
+      <Flex p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)">
+        <Box flex="1">
+          <Heading as="h1" size="xl" mb={4}>
+            Research Council of Norway
+          </Heading>
+          <Text fontSize="2xl" fontWeight="bold" color="white" mb={8}>
+            Total Grant Amount: {projects.reduce((total, project) => total + project.grantAmount, 0)} NOK
+          </Text>
 
-      <Accordion allowMultiple borderRadius="lg" bg="white" boxShadow="lg">
-        {projects.map((project) => (
-          <AccordionItem key={project.id}>
-            <AccordionButton>
-              <Box flex="1" textAlign="left">
-                <Editable defaultValue={project.title} fontSize="xl" fontWeight="bold">
-                  <EditablePreview />
-                  <EditableInput />
-                </Editable>
-                <Text fontSize="lg">{project.status}</Text>
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-            <AccordionPanel pb={4}>
-              <VStack align="start" spacing={4}>
-                <Text>{project.summary}</Text>
-                <HStack spacing={4}>
-                  <Text>Grant Amount: {project.grantAmount} NOK</Text>
-                  <Text fontWeight="bold">Responsible: {project.responsible}</Text>
-                </HStack>
-                <Button leftIcon={<FaUser />} onClick={() => openModal(project)}>
-                  Manage Access
-                </Button>
-              </VStack>
-            </AccordionPanel>
-          </AccordionItem>
-        ))}
-      </Accordion>
+          <Accordion allowMultiple borderRadius="lg" bg="white" boxShadow="lg">
+            {projects.map((project) => (
+              <AccordionItem key={project.id}>
+                <AccordionButton>
+                  <Box flex="1" textAlign="left">
+                    <Editable defaultValue={project.title} fontSize="xl" fontWeight="bold">
+                      <EditablePreview />
+                      <EditableInput />
+                    </Editable>
+                    <Text fontSize="lg">{project.status}</Text>
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel pb={4}>
+                  <VStack align="start" spacing={4}>
+                    <Text>{project.summary}</Text>
+                    <HStack spacing={4}>
+                      <Text>Grant Amount: {project.grantAmount} NOK</Text>
+                      <Text fontWeight="bold">Responsible: {project.responsible}</Text>
+                    </HStack>
+                    <Button leftIcon={<FaUser />} onClick={() => openModal(project)}>
+                      Manage Access
+                    </Button>
+                  </VStack>
+                </AccordionPanel>
+              </AccordionItem>
+            ))}
+          </Accordion>
 
-      <Modal isOpen={isOpen} onClose={onClose} size="xl">
-        <ModalOverlay />
-        <ModalContent borderRadius="lg">
-          <ModalHeader>Project Members</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            {selectedProject && (
-              <Table>
-                <Thead>
-                  <Tr>
-                    <Th>Name</Th>
-                    <Th>Role</Th>
-                    <Th>Access</Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {selectedProject.members.map((member) => (
-                    <Tr key={member.id}>
-                      <Td>{member.name}</Td>
-                      <Td>{member.role}</Td>
-                      <Td>
-                        <Select defaultValue={member.access}>
-                          <option value="None">None</option>
-                          <option value="Medium">Medium</option>
-                          <option value="Full">Full</option>
-                        </Select>
-                      </Td>
-                    </Tr>
-                  ))}
-                </Tbody>
-              </Table>
-            )}
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    </Box>
+          <Modal isOpen={isOpen} onClose={onClose} size="xl">
+            <ModalOverlay />
+            <ModalContent borderRadius="lg">
+              <ModalHeader>Project Members</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                {selectedProject && (
+                  <Table>
+                    <Thead>
+                      <Tr>
+                        <Th>Name</Th>
+                        <Th>Role</Th>
+                        <Th>Access</Th>
+                      </Tr>
+                    </Thead>
+                    <Tbody>
+                      {selectedProject.members.map((member) => (
+                        <Tr key={member.id}>
+                          <Td>{member.name}</Td>
+                          <Td>{member.role}</Td>
+                          <Td>
+                            <Select defaultValue={member.access}>
+                              <option value="None">None</option>
+                              <option value="Medium">Medium</option>
+                              <option value="Full">Full</option>
+                            </Select>
+                          </Td>
+                        </Tr>
+                      ))}
+                    </Tbody>
+                  </Table>
+                )}
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+        </Box>
+        <Box width="4cm" bg="white" p={4} ml={8} boxShadow="lg" borderRadius="lg">
+          <img src="https://www.forskningsradet.no/en/resources/logos/forskningsradet-logo-english.png" alt="Research Council of Norway Logo" />
+        </Box>
+      </Flex>
+      <Box width="4cm" bg="white" p={4} ml={8} boxShadow="lg" borderRadius="lg">
+        <img src="https://www.forskningsradet.no/en/resources/logos/forskningsradet-logo-english.png" alt="Research Council of Norway Logo" />
+      </Box>
+    </Flex>
   );
 };
 
