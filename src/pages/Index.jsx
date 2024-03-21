@@ -9,6 +9,7 @@ const projects = [
     status: "Approved",
     summary: "This is a summary of Project 1.",
     grantAmount: 100000,
+    responsible: "John Doe",
     members: [
       { id: 1, name: "Member 1", role: "Project Lead", access: "Full" },
       { id: 2, name: "Member 2", role: "Researcher", access: "Limited" },
@@ -20,6 +21,7 @@ const projects = [
     status: "Pending",
     summary: "This is a summary of Project 2.",
     grantAmount: 200000,
+    responsible: "Jane Smith",
     members: [
       { id: 3, name: "Member 3", role: "Project Lead", access: "Full" },
       { id: 4, name: "Member 4", role: "Researcher", access: "Limited" },
@@ -31,6 +33,7 @@ const projects = [
     status: "In Progress",
     summary: "This is a summary of Project 3.",
     grantAmount: 150000,
+    responsible: "Mike Johnson",
     members: [
       { id: 5, name: "Member 5", role: "Project Lead", access: "Full" },
       { id: 6, name: "Member 6", role: "Researcher", access: "Limited" },
@@ -42,6 +45,7 @@ const projects = [
     status: "Completed",
     summary: "This is a summary of Project 4.",
     grantAmount: 250000,
+    responsible: "Sarah Lee",
     members: [
       { id: 7, name: "Member 7", role: "Project Lead", access: "Full" },
       { id: 8, name: "Member 8", role: "Researcher", access: "Limited" },
@@ -53,6 +57,7 @@ const projects = [
     status: "Approved",
     summary: "This is a summary of Project 5.",
     grantAmount: 180000,
+    responsible: "David Brown",
     members: [
       { id: 9, name: "Member 9", role: "Project Lead", access: "Full" },
       { id: 10, name: "Member 10", role: "Researcher", access: "Limited" },
@@ -64,6 +69,7 @@ const projects = [
     status: "Pending",
     summary: "This is a summary of Project 6.",
     grantAmount: 220000,
+    responsible: "Emily Davis",
     members: [
       { id: 11, name: "Member 11", role: "Project Lead", access: "Full" },
       { id: 12, name: "Member 12", role: "Researcher", access: "Limited" },
@@ -75,6 +81,7 @@ const projects = [
     status: "In Progress",
     summary: "This is a summary of Project 7.",
     grantAmount: 190000,
+    responsible: "Michael Wilson",
     members: [
       { id: 13, name: "Member 13", role: "Project Lead", access: "Full" },
       { id: 14, name: "Member 14", role: "Researcher", access: "Limited" },
