@@ -1,13 +1,13 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Index from "./pages/Index.jsx";
+import { Route, Routes } from "react-router-dom";
+import Projects from "./pages/Projects";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<Index />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/settings" element={<Settings />} />
+    </Routes>
   );
 }
 
