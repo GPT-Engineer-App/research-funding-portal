@@ -93,9 +93,12 @@ const Index = () => {
 
   return (
     <Box p={8} bgGradient="linear(to-br, brand.700, brand.800, brand.900)">
-      <Heading as="h1" size="xl" mb={8}>
+      <Heading as="h1" size="xl" mb={4}>
         Research Council of Norway
       </Heading>
+      <Text fontSize="2xl" fontWeight="bold" color="white" mb={8}>
+        Total Grant Amount: {projects.reduce((total, project) => total + project.grantAmount, 0)} NOK
+      </Text>
 
       <Accordion allowMultiple borderRadius="lg" bg="white" boxShadow="lg">
         {projects.map((project) => (
@@ -113,7 +116,10 @@ const Index = () => {
             <AccordionPanel pb={4}>
               <VStack align="start" spacing={4}>
                 <Text>{project.summary}</Text>
-                <Text>Grant Amount: {project.grantAmount} NOK</Text>
+                <HStack spacing={4}>
+                  <Text>Grant Amount: {project.grantAmount} NOK</Text>
+                  <Text fontWeight="bold">Responsible: {project.responsible}</Text>
+                </HStack>
                 <Button leftIcon={<FaUser />} onClick={() => openModal(project)}>
                   Manage Access
                 </Button>
@@ -122,10 +128,6 @@ const Index = () => {
           </AccordionItem>
         ))}
       </Accordion>
-
-      <Text mt={8} fontSize="2xl" fontWeight="bold" color="white">
-        Total Grant Amount: {projects.reduce((total, project) => total + project.grantAmount, 0)} NOK
-      </Text>
 
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
         <ModalOverlay />
