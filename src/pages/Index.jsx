@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, VStack, HStack, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Table, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack, HStack, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Table, Thead, Tbody, Tr, Th, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure, Editable, EditableInput, EditablePreview } from "@chakra-ui/react";
 import { FaUser } from "react-icons/fa";
 
 const projects = [
@@ -25,6 +25,61 @@ const projects = [
       { id: 4, name: "Member 4", role: "Researcher", access: "Limited" },
     ],
   },
+  {
+    id: 3,
+    title: "Project 3",
+    status: "In Progress",
+    summary: "This is a summary of Project 3.",
+    grantAmount: 150000,
+    members: [
+      { id: 5, name: "Member 5", role: "Project Lead", access: "Full" },
+      { id: 6, name: "Member 6", role: "Researcher", access: "Limited" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Project 4",
+    status: "Completed",
+    summary: "This is a summary of Project 4.",
+    grantAmount: 250000,
+    members: [
+      { id: 7, name: "Member 7", role: "Project Lead", access: "Full" },
+      { id: 8, name: "Member 8", role: "Researcher", access: "Limited" },
+    ],
+  },
+  {
+    id: 5,
+    title: "Project 5",
+    status: "Approved",
+    summary: "This is a summary of Project 5.",
+    grantAmount: 180000,
+    members: [
+      { id: 9, name: "Member 9", role: "Project Lead", access: "Full" },
+      { id: 10, name: "Member 10", role: "Researcher", access: "Limited" },
+    ],
+  },
+  {
+    id: 6,
+    title: "Project 6",
+    status: "Pending",
+    summary: "This is a summary of Project 6.",
+    grantAmount: 220000,
+    members: [
+      { id: 11, name: "Member 11", role: "Project Lead", access: "Full" },
+      { id: 12, name: "Member 12", role: "Researcher", access: "Limited" },
+    ],
+  },
+  {
+    id: 7,
+    title: "Project 7",
+    status: "In Progress",
+    summary: "This is a summary of Project 7.",
+    grantAmount: 190000,
+    members: [
+      { id: 13, name: "Member 13", role: "Project Lead", access: "Full" },
+      { id: 14, name: "Member 14", role: "Researcher", access: "Limited" },
+    ],
+  },
 ];
 
 const Index = () => {
@@ -47,9 +102,10 @@ const Index = () => {
           <AccordionItem key={project.id}>
             <AccordionButton>
               <Box flex="1" textAlign="left">
-                <Text fontWeight="bold" fontSize="xl">
-                  {project.title}
-                </Text>
+                <Editable defaultValue={project.title} fontSize="xl" fontWeight="bold">
+                  <EditablePreview />
+                  <EditableInput />
+                </Editable>
                 <Text fontSize="lg">{project.status}</Text>
               </Box>
               <AccordionIcon />
